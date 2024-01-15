@@ -12,7 +12,10 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff..in my way"
+                cd myapp
+                pip install -r requirements.txt
+
+                echo "Buildin ongoing ...."
                 '''
             }
         }
@@ -20,6 +23,9 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
+                cd myapp
+                python3 hello.py
+                python3 hello.py --name=Ashik
                 echo "doing test stuff.."
                 '''
             }
